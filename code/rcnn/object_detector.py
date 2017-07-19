@@ -25,7 +25,7 @@ def switch_intention(intention=None, parameter=None):
             answer = ','.join(obj_list)
             return 'I can find ' + answer + ' in the picture'
         else:
-            return 'I can not find anything I know from the picture'
+            return 'I can not find anything, make sure you have uploaded a picture'
     elif intention == 'drawbox':
         return draw_box()
     elif intention == 'welcome':

@@ -3,6 +3,9 @@ from nltk.tag.perceptron import PerceptronTagger
 from nltk import word_tokenize
 import os
 
+CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
+PATH_TO_CRFMODEL = (os.path.join(CURRENT_PATH, '../model'))
+
 tagger = PerceptronTagger()
 
 
@@ -73,11 +76,8 @@ def get_parameter(sentence, name):
     name = str(name) + '.crfsuite'
     sentence = posTagAndLabel(sentence)
     tagger = pycrfsuite.Tagger()
-
     result = {}
-
-    currentpath = os.path.dirname(os.path.realpath(__file__))
-    crfmodel = os.path.join(currentpath, name)
+    crfmodel = os.path.join(PATH_TO_CRFMODEL, name)
     tagger.open(crfmodel)
 
     taglist = tagger.tag(sent2features(sentence))

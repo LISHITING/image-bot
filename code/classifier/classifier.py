@@ -7,4 +7,3 @@ def get_result(query):
     parameter = get_parameter(query, intention)
     result = dict(intention=intention, parameter=parameter)
     return result
-

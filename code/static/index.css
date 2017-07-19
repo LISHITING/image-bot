@@ -1,0 +1,50 @@
+/*REALDESIGN*/
+
+.page-title {
+    color: dodgerblue;
+}
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.inputbox {
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: dodgerblue;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.robot {
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: dodgerblue;
+}
+
+.robot p {
+    margin: 10px;
+}
+
+.user {
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: dodgerblue;
+}
+
+.user p {
+    margin: 10px;
+}
+
+.chatname {
+    color: dodgerblue;
+}
+
+#query-error {
+    color: red;
+}

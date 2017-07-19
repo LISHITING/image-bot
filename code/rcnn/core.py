@@ -5,10 +5,10 @@ from rcnn.utils import label_map_util
 import pickle
 
 CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
-PATH_TO_CKPT= (os.path.join(CURRENT_PATH, 'frozen_inference_graph.pb'))
-PATH_TO_LABELS = (os.path.join(CURRENT_PATH, 'mscoco_label_map.pbtxt'))
-PATH_TO_RESULT = (os.path.join(CURRENT_PATH, 'filted_result'))
-PATH_TO_IMAGE = (os.path.join(CURRENT_PATH, 'imagefile'))
+PATH_TO_CKPT= (os.path.join(CURRENT_PATH, '../model/frozen_inference_graph.pb'))
+PATH_TO_LABELS = (os.path.join(CURRENT_PATH, '../model/mscoco_label_map.pbtxt'))
+PATH_TO_RESULT = (os.path.join(CURRENT_PATH, '../temp/filted_result'))
+PATH_TO_IMAGE = (os.path.join(CURRENT_PATH, '../temp/imagefile'))
 NUM_CLASSES = 90
 PATH_TO_TEST_IMAGES_DIR = 'test_images'
 TEST_IMAGE_PATHS = [os.path.join(CURRENT_PATH, PATH_TO_TEST_IMAGES_DIR, 'image1.jpg'.format(i)) for i in range(1, 2)]
@@ -47,7 +47,7 @@ def detect():
     return boxes, scores, classes, num_detections
 
 
-def result_filter(classes, scores, threshold=0.5):
+def result_filter(classes, scores, threshold=0.3):
     tmp = list(zip(classes[0], scores[0]))
     filtered_result = [i for i in tmp if i[1] > threshold]
     return filtered_result
@@ -90,7 +90,6 @@ def list_obj():
             if i == int(value.get('id')):
                 output.append(value.get('name'))
     return output
-
 
 
 def parameter2id(parameter):
