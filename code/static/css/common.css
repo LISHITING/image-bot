@@ -1,0 +1,11 @@
+body {
+    background: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    /*background-size: contain;*/
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.page-title {
+    color: dodgerblue;
+}

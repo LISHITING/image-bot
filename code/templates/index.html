@@ -1,10 +1,16 @@
 {% extends "bootstrap/base.html" %}
 
+{% block head %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png') }}">
+{% endblock %}
+
+
 css block
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet"
-          href="{{ url_for('.static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/index.css') }}">
 {% endblock %}
 
 {% block title %}
@@ -14,14 +20,16 @@ css block
 
 {% block content %}
     <div class="container ">
-        <div class="col-md-6 col-md-offset-3 chatbot">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 chatbot">
             <div class="row">
-                <h1  id="help" class="page-title">IMAGEBOT</h1>
-{#                <button id="help" type="button" class="btn btn-default">help</button>#}
+                <h1 id="help" class="page-title">
+{#                    IMAGEBOT#}
+                </h1>
             </div>
             <div class="row">
                 <div class="input-group query-inputbox">
-                    <input type="text" class="inputbox form-control" name="a" placeholder="Type your question here">
+                    <input id="query" type="text" class="inputbox form-control" name="a"
+                           placeholder="Type your question here">
                     <span class="input-group-btn">
                         <button id="calculate" type="button" class="btn btn-default">send</button>
                     </span>
@@ -32,9 +40,9 @@ css block
             </div>
             <div class="row">
                 <form id="upload-file" method="post" enctype="multipart/form-data">
-                    <label class="btn btn-default">
+                    <label id="imagefile-label" class="btn btn-default">
                         <input name="imagefile" id="imagefile" type="file">
-                        Choose image..
+                        Choose an image..
                     </label>
                     <button id="upload-file-btn" type="button" class="btn btn-default" disabled="True">Upload</button>
                     <button id="clear" type="button" class="btn btn-danger">clear history</button>
@@ -53,7 +61,7 @@ css block
 
 {#Javascript block#}
 {% block scripts %}
-    <script src="{{ url_for('.static', filename='jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ url_for('.static', filename='index.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/index.js') }}"></script>
     {{ super() }}
 {% endblock %}
